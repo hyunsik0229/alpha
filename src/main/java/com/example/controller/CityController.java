@@ -53,6 +53,6 @@ public class CityController {
 		var codes = mapper.selectCountryCodes();
 		model.addAttribute("codes", codes);
 		
-		return "city/list3";
+		return "city/list";
 	}
 }
