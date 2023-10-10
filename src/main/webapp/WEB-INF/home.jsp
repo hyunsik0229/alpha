@@ -152,7 +152,7 @@ window.onload = function() {
 	</li>
 </ul>
 </nav>
-
+<h1>양현식</h1>
 <iframe src="/alpha/fill" 
 		 name="content" 
 		 width="100%"
