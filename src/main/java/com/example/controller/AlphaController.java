@@ -77,6 +77,21 @@ public class AlphaController {
 		model.addAttribute("surface",alphas);
 	}
 	
+	@GetMapping("/earthworm")
+	void eartgworm(Model model) {
+		var alphas = new HashSet<ArrayList<Alpha>>();
+		for (var i=0; i<20; i++) {
+			var list = new ArrayList<Alpha>();
+			for (var j=0; j<40;j++) {
+				list.add(new Alpha());
+			}
+			alphas.add(list);
+		}
+		System.out.println(alphas.size());
+		
+		model.addAttribute("surface",alphas);
+	}
+	
 	@GetMapping("/data")
 	@ResponseBody	// REST API
 	Alpha data() {
