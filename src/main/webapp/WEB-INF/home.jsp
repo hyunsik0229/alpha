@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="jakarta.tags.core" %>    
-    <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>home.jsp</title>
+<link rel="icon" type="image/png" href="/favicon.png"/>
 <link rel="stylesheet" href="/css/cube.css">
 <style type="text/css">
 
@@ -29,10 +29,10 @@
 	background: orange;
 }
 
-.menu-item > a{
+.menu-title > a {
 	display: block;
 	text-decoration: none;
-	
+	color: black;
 }
 
 .menu-item:hover > .menu-title {
@@ -45,7 +45,7 @@
 	transition: max-height 2s;
 }
 
-.menu-item:last-child(2) {
+.menu-item:nth-last-child(2) {
 	margin-left: auto;
 	margin-right: 10px;
 }
@@ -83,15 +83,20 @@ iframe {
 }
 
 </style>
+<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
 <script type="text/javascript">
 function resize() {
 	let iframe = document.querySelector('iframe');
 	iframe.style.height = getComputedStyle(iframe.contentDocument.documentElement).height;
 }
 
-window.onload = function() {
-	setInterval(resize, 100);	
-}
+// window.onload = function() {
+// 	setInterval(resize, 100);	
+// }
+$(document).ready(function() {
+	setInterval(resize, 100);
+});
+
 </script>
 </head>
 <body>
@@ -100,13 +105,13 @@ window.onload = function() {
 	<li style="padding: 0px 20px;">
 		<section class="perspective">
 		<article class="cube">
-			<div class="base">Base</div>
-			<div class="base front">Front</div>
-			<div class="base back">Back</div>
-			<div class="base left">Left</div>
-			<div class="base right">Right</div>
-			<div class="base top">Top</div>
-			<div class="base bottom">Bottom</div>
+			<div class="base">Alpha</div>
+			<div class="base front">A</div>
+			<div class="base back">B</div>
+			<div class="base left">C</div>
+			<div class="base right">D</div>
+			<div class="base top">E</div>
+			<div class="base bottom">F</div>
 		</article>
 		</section>
 	</li>
@@ -165,14 +170,14 @@ window.onload = function() {
 	</li>
 	<li class="menu-item">
 		<div class="menu-title">
-			<a href="/register">register</a>
+			<a href="/register">Register</a>
 		</div>
 	</li>
 	</sec:authorize>
 	<sec:authorize access="isAuthenticated()">
 	<li class="menu-item">
 		<div class="menu-title">
-			<a href="/logout">logout</a>
+			<a href="/logout">Logout</a>
 		</div>
 	</li>
 	<li class="menu-item">
@@ -180,18 +185,12 @@ window.onload = function() {
 			<a href="#"><sec:authentication property="name"/></a>
 		</div>
 	</li>
-	<li class="menu-item">
-        <div class="menu-title">
-            <a href="#"><sec:authentication property="name"/></a>
-        </div>
-    </li>
 	</sec:authorize>
-	<li class="menu-item">
-		<div class="menu-title">Login</div>
-	</li>
+	
+	
 </ul>
 </nav>
-<h1>양현식</h1>
+
 <iframe src="/alpha/fill" 
 		 name="content" 
 		 width="100%"
