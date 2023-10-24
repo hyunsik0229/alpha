@@ -1,13 +1,19 @@
 package com.example;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
+import com.example.service.MemberService;
+
 @Configuration
 public class SecurityConfig {
 
+		@Autowired
+		MemberService memeService;
+	
         @Bean
         SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
             http
@@ -24,6 +30,7 @@ public class SecurityConfig {
                     .logoutUrl("/logout")
                     .logoutSuccessUrl("/")
                     )
+            .userDetailsService(memeService)
             ;
             return http.build();
         }
