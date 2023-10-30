@@ -34,10 +34,10 @@ public interface DeptMapper {
 	int insert(Dept dept);
 	
 	@Update("""
-			update from dept 
-				set dname = #{dname},
-					loc	  = #{loc}
-				where deptno = #{deptno}
+			update dept 
+			   set dname = #{dname},
+				   loc	  = #{loc}
+			 where deptno = #{deptno}
 		""")
 	int update(Dept dept);
 	

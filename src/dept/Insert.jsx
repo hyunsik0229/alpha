@@ -27,6 +27,10 @@ class Insert extends React.Component {
 		
 	}
 	
+	state = {
+		dept: {}
+	}
+	
 	render() {
 		return (
 			<>
