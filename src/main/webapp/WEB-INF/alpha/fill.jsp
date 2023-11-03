@@ -12,8 +12,9 @@
 	font-family: monospace;
 	font-size: 2em;
  	border-left: 20px solid red;
-	background: url('/media/alpha.png');
+	background: url('/img/dog.jpg');
 	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 #surface td {
